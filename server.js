@@ -24,7 +24,7 @@ server.listen(3000,function(){
 var PATH = '/definitions';
 
 server.get(PATH, function (req, res, next) {
-    db.definitions.find({ StateName: 'Released' }, { defnitionLabel: 1, defnitionDescription: 1 }).limit(50,function (err, definitions) {
+    db.definitions.find({ StateName: 'Released' }, { _id:0, defnitionLabel: 1, defnitionDescription: 1 }).limit(50,function (err, definitions) {
         console.log(definitions);
         res.end(JSON.stringify(definitions));
     });
@@ -38,8 +38,7 @@ server.del(PATH +'/:id' ,deleteDefinition);
 
 function findDefinition(req, res , next){
     //res.setHeader('Access-Control-Allow-Origin','*');
-    console.log('I was Hit');
-    db.definitions.findOne({ StateName: 'Released',ProgrammaticName:req.params.id }, { defnitionLabel: 1, defnitionDescription: 1 },function (err, definition) {
+    db.definitions.findOne({ StateName: 'Released',_id:req.params.id }, { defnitionLabel: 1, defnitionDescription: 1 },function (err, definition) {
         console.log(definition);
         res.end(JSON.stringify(definition));
     });
@@ -67,7 +66,7 @@ function postNewDefinition(req , res , next){
 
 function deleteDefinition(req , res , next){
     //res.setHeader('Access-Control-Allow-Origin','*');
-    definitions.remove({ProgrammaticName:req.params.id} , function(err , success){
+    definitions.remove({_id:req.params.id} , function(err , success){
         console.log('Response success '+success);
         console.log('Response error '+err);
         if(success){
