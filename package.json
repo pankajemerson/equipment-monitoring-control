@@ -1,27 +1,15 @@
 {
-  "name": "equipment-monitoring-control",
-  "version": "1.0.0",
-  "description": "Equipment Monitoring And Control",
-  "main": "app.js",
+  "name": "emc2",
+  "version": "0.0.0",
+  "description": "Equipment Monitoring Control",
+  "main": ".mongorc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "pankajwahane",
-  "license": "Apache 2":,
-  "dependencies": {    
-    "restify": "^2.8.4",
+  "author": "PankajWahane@Gmail.com",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "restify": "~2.8.4",
     "mongojs": "~0.18.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pankajemerson/equipment-monitoring-control"
-  },
-  "keywords": [
-    "monitoring",
-    "control"
-  ],
-  "bugs": {
-    "url": "https://github.com/pankajemerson/equipment-monitoring-control/issues"
-  },
-  "homepage": "https://github.com/pankajemerson/equipment-monitoring-control"
+  }
 }
